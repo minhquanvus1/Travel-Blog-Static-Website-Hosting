@@ -6,7 +6,7 @@
 
 ## The steps to host the website are as follows:
 
-1. Configure S3 Bucket:
+1. **Configure S3 Bucket:**
 
 - Create an S3 bucket.
 - Go to "Permission" tab, uncheck the box "Block all Public Access". Then, click on "Bucket Policy" and add the following policy:
@@ -40,11 +40,11 @@ aws s3 cp css/ s3://my-bucket-website-travel/css/ --recursive --profile cloud-fu
 aws s3 cp vendor/ s3://my-bucket-website-travel/vendor/ --recursive --profile cloud-fundamentals
 ```
 
-2. Configure CloudFront:
+2. **Configure CloudFront:**
 
 - Create a CloudFront distribution.
 
-- In the "Origin Domain", select the <bucket-name>.s3-website-region.amazonaws.com (which is the S3 bucket website endpoint).
+- In the "Origin Domain", select the `<bucket-name>.s3-website-region.amazonaws.com` (which is the S3 bucket website endpoint).
 
 - Notice that: if we upload the updated files to the S3 bucket, the changes will not be reflected immediately in the CloudFront distribution (because the CloudFront's cache is not invalidated automatically). To fix this, we can create an invalidation in the CloudFront distribution (the Invalidations can not be deleted once created)
 
